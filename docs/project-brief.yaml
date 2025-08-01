@@ -1,0 +1,370 @@
+# HoopsArchive Project Brief v1.0
+# Generated: 2024-12-19
+# Mode: YOLO (Auto-generated Draft)
+
+executive-summary:
+  project-name: "HoopsArchive - Basketball Data Analytics Platform"
+  vision: "A comprehensive basketball statistics platform that transforms raw NBA/ABA/BAA CSV datasets into a modern, queryable web application for basketball analytics and research"
+  value-proposition: "Democratize access to historical basketball data through a modern API and intuitive web interface, enabling researchers, analysts, and fans to explore decades of basketball statistics with unprecedented ease"
+  success-metrics:
+    - "Complete ingestion of 40+ CSV datasets covering players, teams, games, and advanced statistics"
+    - "Sub-200ms API response times for complex statistical queries"
+    - "Support for 1M+ historical records with real-time filtering and aggregation"
+    - "Modern React frontend with responsive design and advanced data visualization"
+
+problem-statement:
+  current-pain-points:
+    - "Basketball statistics are scattered across multiple CSV files with inconsistent schemas"
+    - "No unified API exists for accessing historical NBA/ABA/BAA data programmatically"
+    - "Data quality issues including missing values, inconsistent team abbreviations, and orphaned foreign keys"
+    - "Complex relationships between players, teams, games, and seasons require expert knowledge to navigate"
+  market-gap: "Existing basketball data platforms are either proprietary, expensive, or lack comprehensive historical coverage spanning multiple leagues (NBA/ABA/BAA)"
+  business-impact:
+    - "Researchers spend 80% of time on data cleaning instead of analysis"
+    - "Lack of standardized APIs limits innovation in basketball analytics applications"
+    - "Historical data insights are locked away in difficult-to-process formats"
+
+proposed-solution:
+  approach: "Build a modern full-stack application with robust data ingestion, API layer, and interactive frontend"
+  core-components:
+    data-layer:
+      - "DuckDB-powered analytics database optimized for OLAP queries"
+      - "Comprehensive ETL pipeline with data validation and quality checks"
+      - "Normalized schema supporting complex relationships and historical data"
+    api-layer:
+      - "Django REST Framework providing RESTful endpoints"
+      - "Advanced filtering, pagination, and aggregation capabilities"
+      - "OpenAPI documentation for developer adoption"
+    frontend-layer:
+      - "React + TypeScript SPA with Vite build system"
+      - "Responsive design supporting desktop and mobile devices"
+      - "Interactive data visualization and export capabilities"
+  technical-architecture:
+    - "Monorepo structure with clear separation of concerns"
+    - "BDD-driven development with comprehensive Gherkin specifications"
+    - "CI/CD pipeline with automated testing and deployment"
+    - "Containerized deployment on Fly.io platform"
+
+target-users:
+  primary:
+    - "Basketball researchers and analysts requiring programmatic data access"
+    - "Sports journalists needing quick access to historical statistics"
+    - "Fantasy basketball enthusiasts seeking advanced player metrics"
+  secondary:
+    - "Academic researchers studying sports analytics and data science"
+    - "Basketball coaches analyzing opponent and player performance trends"
+    - "Data scientists learning with real-world sports datasets"
+  user-personas:
+    analyst-alex:
+      role: "Senior Basketball Analyst"
+      needs: "Fast API access to player efficiency ratings across multiple seasons"
+      pain-points: "Current tools require manual CSV processing and lack advanced metrics"
+    researcher-riley:
+      role: "Sports Analytics PhD Student"
+      needs: "Historical play-by-play data for machine learning research"
+      pain-points: "Data inconsistencies and missing documentation slow research progress"
+    journalist-jordan:
+      role: "Sports Journalist"
+      needs: "Quick statistical lookups for article fact-checking"
+      pain-points: "No single source for comprehensive basketball statistics"
+
+goals-metrics:
+  business-objectives:
+    - "Establish HoopsArchive as the definitive source for historical basketball data"
+    - "Enable 1000+ API requests per day within 6 months of launch"
+    - "Achieve 95% data accuracy across all statistical categories"
+  technical-objectives:
+    - "Ingest and normalize 40+ CSV files totaling 10M+ records"
+    - "Maintain API response times under 200ms for 95th percentile"
+    - "Achieve 99.9% uptime with automated monitoring and alerting"
+  user-experience-objectives:
+    - "Enable complex queries through intuitive web interface"
+    - "Provide comprehensive API documentation with code examples"
+    - "Support data export in multiple formats (JSON, CSV, Excel)"
+  success-metrics:
+    quantitative:
+      - "API adoption: 100+ registered developers in first quarter"
+      - "Data completeness: 98% of expected records successfully ingested"
+      - "Performance: <200ms average response time for statistical queries"
+      - "Quality: <1% error rate in data validation tests"
+    qualitative:
+      - "Positive feedback from basketball analytics community"
+      - "Successful integration with existing research workflows"
+      - "Recognition as reliable data source in academic publications"
+
+mvp-scope:
+  core-features:
+    data-ingestion:
+      - "Automated CSV processing with configurable validation rules"
+      - "Support for player, team, game, and season statistical data"
+      - "Data quality reporting and error handling"
+    api-endpoints:
+      - "GET /players - Player search and filtering by season, team, position"
+      - "GET /games/{id}/pbp - Play-by-play data for specific games"
+      - "GET /teams - Team information and historical aliases"
+      - "GET /seasons - Season metadata and league information"
+    web-interface:
+      - "Player statistics browser with advanced filtering"
+      - "Game play-by-play viewer with timeline navigation"
+      - "Team comparison tools with historical context"
+      - "Data export functionality for research use"
+  technical-requirements:
+    - "Python 3.11+ backend with Django 4.2+ and DRF"
+    - "React 18+ frontend with TypeScript and Vite"
+    - "DuckDB for analytics workloads with PostgreSQL for metadata"
+    - "Comprehensive test coverage with pytest and Jest"
+  data-coverage:
+    - "NBA regular season and playoff data (1947-present)"
+    - "ABA historical data (1967-1976)"
+    - "BAA historical data (1946-1949)"
+    - "Player career statistics, advanced metrics, and biographical data"
+    - "Team season summaries, opponent statistics, and arena information"
+    - "Game-level data including box scores and play-by-play events"
+
+post-mvp-vision:
+  advanced-features:
+    - "Real-time data updates during active NBA seasons"
+    - "Machine learning-powered player similarity and projection models"
+    - "Interactive data visualization dashboard with custom charts"
+    - "GraphQL API for complex relational queries"
+    - "Mobile application for iOS and Android platforms"
+  data-expansion:
+    - "WNBA historical and current season data integration"
+    - "College basketball tournament data (March Madness)"
+    - "International basketball leagues (EuroLeague, etc.)"
+    - "Player tracking data and advanced spatial analytics"
+  platform-enhancements:
+    - "Multi-tenant architecture supporting custom datasets"
+    - "Enterprise API tiers with enhanced rate limits and SLA"
+    - "Data marketplace for premium statistical products"
+    - "Integration with popular analytics tools (Tableau, Power BI)"
+
+technical-considerations:
+  platform:
+    deployment: "Fly.io with Docker containerization"
+    monitoring: "Application performance monitoring and error tracking"
+    scaling: "Horizontal scaling with load balancing and caching"
+  technology-stack:
+    backend:
+      - "Django 4.2+ with Django REST Framework"
+      - "DuckDB for analytical queries and data warehousing"
+      - "PostgreSQL for transactional data and user management"
+      - "Celery for background task processing"
+    frontend:
+      - "React 18+ with TypeScript for type safety"
+      - "Vite for fast development and optimized builds"
+      - "TanStack Query for efficient data fetching and caching"
+      - "Recharts or D3.js for data visualization components"
+    infrastructure:
+      - "Docker for consistent development and deployment environments"
+      - "GitHub Actions for CI/CD pipeline automation"
+      - "Redis for caching and session management"
+      - "CloudFlare for CDN and DDoS protection"
+  architecture-patterns:
+    - "Clean Architecture with clear separation of concerns"
+    - "Repository pattern for data access abstraction"
+    - "Command Query Responsibility Segregation (CQRS) for read/write optimization"
+    - "Event-driven architecture for data pipeline orchestration"
+
+constraints-assumptions:
+  budget-constraints:
+    - "Bootstrap project with minimal infrastructure costs (<$100/month)"
+    - "Leverage free tiers and open-source technologies where possible"
+    - "Optimize for cost-effective scaling as user base grows"
+  timeline-constraints:
+    - "MVP delivery target: 3-4 months from project initiation"
+    - "Iterative development with 2-week sprint cycles"
+    - "Parallel development of backend and frontend components"
+  resource-constraints:
+    - "Single full-stack developer for initial development"
+    - "Community contributions for data validation and testing"
+    - "Leverage existing open-source libraries and frameworks"
+  technical-assumptions:
+    - "CSV data sources remain stable and accessible"
+    - "DuckDB performance meets analytical query requirements"
+    - "Fly.io platform provides sufficient scalability for projected usage"
+  key-assumptions:
+    - "Basketball analytics community will adopt and contribute to the platform"
+    - "Data quality issues can be resolved through automated validation"
+    - "API-first approach will drive adoption among developers"
+    - "Modern web technologies will provide sufficient performance"
+
+risks-questions:
+  key-risks:
+    technical:
+      - "Data quality issues may require extensive manual cleanup"
+      - "DuckDB performance may not scale to projected query volumes"
+      - "Complex CSV relationships may introduce data integrity challenges"
+    business:
+      - "Limited market validation for basketball data API demand"
+      - "Potential competition from established sports data providers"
+      - "Dependency on external data sources for ongoing updates"
+    operational:
+      - "Single developer dependency creates project continuity risk"
+      - "Infrastructure costs may exceed budget projections"
+      - "Data licensing and legal compliance requirements"
+  open-questions:
+    - "What is the optimal data refresh frequency for historical datasets?"
+    - "How should we handle conflicting data between different CSV sources?"
+    - "What authentication and rate limiting strategies are appropriate?"
+    - "Should we prioritize API completeness or frontend user experience?"
+  research-areas:
+    - "Basketball analytics community needs assessment and user interviews"
+    - "Competitive analysis of existing sports data platforms"
+    - "Performance benchmarking of DuckDB vs. traditional databases"
+    - "Legal review of data usage rights and attribution requirements"
+    - "Advanced authentication and authorization frameworks (JWT/OAuth2)"
+    - "React performance optimization for large datasets and virtual scrolling"
+    - "Test automation strategies with pytest and Factory Boy"
+    - "Data pipeline optimization with DuckDB CSV ingestion"
+
+appendices:
+  research-summary:
+    - "Analyzed 40+ CSV files totaling 10M+ records across players, teams, games"
+    - "Identified key data quality challenges including missing values and FK orphans"
+    - "Documented complex relationships between entities across multiple leagues"
+    - "Established technical architecture supporting analytical workloads"
+    - "Comprehensive research on implementation gaps and optimization strategies"
+  
+  comprehensive-research-findings:
+    data-pipeline-optimization:
+      duckdb-performance:
+        - "CSV ingestion with auto-detection and parallel reading capabilities"
+        - "Query optimization with filter pushdown and column selection"
+        - "Performance configuration settings (preserve_insertion_order, max_temp_directory_size)"
+        - "Globbing for multiple file processing with optimized sniffing bypass"
+      django-optimization:
+        - "Database query optimization with select_related() and prefetch_related()"
+        - "Connection pooling with django-db-geventpool for high-traffic scenarios"
+        - "Bulk operations using bulk_create() for CSV data import"
+        - "Caching strategies with Redis/Memcached for query and session caching"
+        - "StreamingHttpResponse for large CSV exports and memory efficiency"
+    
+    security-framework:
+      authentication-authorization:
+        - "JWT implementation with djangorestframework-simplejwt"
+        - "OAuth2 integration for third-party authentication"
+        - "Multi-layered security strategy with environment-specific configurations"
+        - "Advanced authentication methods (HTTP Signature, Hawk HTTP)"
+        - "Token refresh mechanisms and secure storage practices"
+      security-best-practices:
+        - "CORS configuration for cross-origin requests"
+        - "Rate limiting and API throttling strategies"
+        - "Input validation and SQL injection prevention"
+        - "Monitoring and logging for security events"
+    
+    frontend-performance:
+      react-optimization:
+        - "Virtual scrolling with react-window for large dataset rendering"
+        - "State management optimization with Redux Toolkit and RTK Query"
+        - "Code splitting and lazy loading for bundle size optimization"
+        - "React.memo and useMemo for component re-render prevention"
+        - "Web Workers for heavy computation offloading"
+      data-management:
+        - "RTK Query for efficient data fetching with automatic caching"
+        - "Background refetching and optimistic updates"
+        - "Normalized state structure for complex relational data"
+        - "Pagination and infinite scrolling implementation patterns"
+    
+    test-automation:
+      testing-strategy:
+        - "Pytest integration with Django REST Framework testing"
+        - "Factory Boy for test data generation and fixture management"
+        - "Coverage analysis with pytest-cov and reporting"
+        - "Authentication testing with token-based fixtures"
+        - "Integration testing for CRUD operations and API contracts"
+      best-practices-2024:
+        - "Test organization with conftest.py and modular fixtures"
+        - "Performance optimization for test suite execution"
+        - "Error handling and edge case testing strategies"
+        - "Continuous integration with automated test execution"
+    
+    competitive-analysis:
+      market-leaders:
+        - "Synergy Sports Technology: NBA-grade video streaming and statistical displays"
+        - "Second Spectrum: 3D spatial data tracking with advanced insights"
+        - "Hudl: Comprehensive sports performance analysis platform"
+      open-source-landscape:
+        - "Basketball analytics frameworks and modular Python implementations"
+        - "NBA data analysis tools and Jupyter notebook collections"
+        - "ETL pipelines for sports statistics and API integrations"
+      differentiation-opportunities:
+        - "Historical data focus with comprehensive league coverage"
+        - "Developer-friendly API with extensive documentation"
+        - "Open-source approach fostering community contributions"
+    
+    implementation-roadmap:
+      phase-1-foundation:
+        - "DuckDB integration with optimized CSV ingestion pipeline"
+        - "JWT authentication system with refresh token mechanism"
+        - "Basic React components with virtual scrolling foundation"
+        - "Pytest test suite with Factory Boy integration"
+      phase-2-optimization:
+        - "Advanced caching strategies and query optimization"
+        - "OAuth2 integration for third-party authentication"
+        - "RTK Query implementation for efficient data management"
+        - "Comprehensive test coverage with integration testing"
+      phase-3-scaling:
+        - "Performance monitoring and optimization based on usage patterns"
+        - "Advanced security features and rate limiting"
+        - "Frontend performance optimization with code splitting"
+        - "Automated testing pipeline with continuous integration"
+    
+    success-metrics:
+      technical-kpis:
+        - "API response times: <200ms for 95th percentile queries"
+        - "Data ingestion performance: >10M records processed per hour"
+        - "Test coverage: >90% code coverage with comprehensive integration tests"
+        - "Security compliance: Zero critical vulnerabilities in security audits"
+      performance-benchmarks:
+        - "DuckDB query performance vs. traditional PostgreSQL for analytics"
+        - "React virtual scrolling performance with 100K+ record datasets"
+        - "Authentication system throughput and token validation speed"
+        - "CSV processing speed and memory efficiency metrics"
+  stakeholder-input:
+    - "Basketball analytics community feedback on data access pain points"
+    - "Developer community input on API design and documentation needs"
+    - "Academic researcher requirements for historical data access"
+  references:
+    - "Basketball Reference (basketball-reference.com) - Industry standard"
+    - "NBA Stats API documentation and rate limiting policies"
+    - "Sports analytics research papers and methodologies"
+    - "Open source sports data projects and community best practices"
+
+next-steps:
+  immediate-actions:
+    - "Finalize ERD v0.3 with complete entity relationships and constraints"
+    - "Implement core data ingestion pipeline with validation framework"
+    - "Develop MVP API endpoints with comprehensive error handling"
+    - "Create responsive frontend components for player and game data"
+  pm-handoff:
+    - "Transfer project brief to Product Manager for roadmap planning"
+    - "Schedule stakeholder review sessions for requirement validation"
+    - "Establish sprint planning process with clear acceptance criteria"
+    - "Define success metrics and monitoring dashboard requirements"
+
+# Technical Implementation Notes
+# Current Status: Red Phase (Scaffolding)
+# - Django backend with stubbed views and serializers
+# - React frontend with basic routing and placeholder components
+# - DuckDB repository contracts defined but not implemented
+# - Comprehensive BDD specifications driving development
+# - Pytest scaffolding for validation and API contract testing
+
+# Development Approach: BDD-Driven
+# - Gherkin specifications define expected behavior
+# - Red-Green-Refactor cycle with comprehensive test coverage
+# - Monorepo structure with clear separation of concerns
+# - CI/CD pipeline with automated testing and deployment
+
+# Data Architecture Highlights
+# - 40+ CSV files with complex relationships and data quality challenges
+# - Normalized schema supporting historical data across multiple leagues
+# - DuckDB optimized for analytical queries and aggregations
+# - Comprehensive data validation and quality reporting
+
+# API Design Principles
+# - RESTful endpoints with consistent naming conventions
+# - Advanced filtering, pagination, and sorting capabilities
+# - Comprehensive error handling and validation
+# - OpenAPI documentation for developer adoption
