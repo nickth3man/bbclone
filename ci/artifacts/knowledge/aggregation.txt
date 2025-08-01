@@ -1,0 +1,1 @@
+Artifacts: quality/depcruise.json, architecture/pyan.json, performance/radon_cc.json, quality/pipdeptree.json, quality/ruff.json, quality/flake8.json, quality/deptry.json, performance/madge.txt

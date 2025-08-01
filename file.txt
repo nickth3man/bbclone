@@ -1,2 +1,194 @@
-text
-text
+#!/usr/bin/env python3
+"""
+BBClone Ingest Pipeline Demo Script
+
+This script demonstrates the full ingest pipeline from CSV files 
+to curated tables with validation checks.
+
+Usage:
+    python demo_pipeline.py [--skip-ingest] [--skip-transform] [--validate-only]
+"""
+
+import argparse
+import sys
+import os
+from pathlib import Path
+
+# Add the project root to Python path
+project_root = Path(__file__).parent
+sys.path.insert(0, str(project_root))
+
+from ingest.duckdb_client import health_check, connect
+from ingest.staging_loader import load_all_staging_tables
+from ingest.transformer import promote_staging_to_curated
+from ingest.validators import (
+    table_existence_check,
+    fk_orphans_check,
+    uniq_check,
+    tot_consistency_check,
+    sample_reconciliation_check
+)
+
+
+def main():
+    parser = argparse.ArgumentParser(description='BBClone Ingest Pipeline Demo')
+    parser.add_argument('--skip-ingest', action='store_true', 
+                       help='Skip CSV ingestion step')
+    parser.add_argument('--skip-transform', action='store_true',
+                       help='Skip transformation step')
+    parser.add_argument('--validate-only', action='store_true',
+                       help='Only run validation checks')
+    
+    args = parser.parse_args()
+    
+    print("🏀 BBClone Ingest Pipeline Demo")
+    print("=" * 40)
+    
+    # Health check
+    print("\n🔍 Database Health Check...")
+    if not health_check():
+        print("❌ Database connection failed!")
+        print("Make sure DuckDB is accessible and try again.")
+        return 1
+    print("✅ Database connection healthy")
+    
+    if not args.validate_only:
+        # Step 1: Ingest CSVs to staging
+        if not args.skip_ingest:
+            print("\n📥 Step 1: CSV Ingestion")
+            print("-" * 25)
+            try:
+                load_all_staging_tables()
+                print("✅ CSV ingestion completed")
+            except Exception as e:
+                print(f"❌ Ingestion failed: {e}")
+                return 1
+        else:
+            print("\n⏭️  Skipping CSV ingestion")
+        
+        # Step 2: Transform staging to curated
+        if not args.skip_transform:
+            print("\n🔄 Step 2: Data Transformation")
+            print("-" * 30)
+            try:
+                promote_staging_to_curated()
+                print("✅ Data transformation completed")
+            except Exception as e:
+                print(f"❌ Transformation failed: {e}")
+                return 1
+        else:
+            print("\n⏭️  Skipping data transformation")
+    
+    # Step 3: Validation
+    print("\n✅ Step 3: Data Validation")
+    print("-" * 25)
+    
+    total_issues = 0
+    
+    # Table existence
+    print("\n📋 Checking table existence...")
+    table_issues = table_existence_check()
+    if table_issues:
+        print(f"⚠️  {len(table_issues)} table issues found")
+        for issue in table_issues[:3]:
+            print(f"   • {issue['table']}: {issue['issue']}")
+        total_issues += len(table_issues)
+    else:
+        print("✅ All required tables exist and have data")
+    
+    # Foreign key integrity
+    print("\n🔗 Checking foreign key integrity...")
+    fk_issues = fk_orphans_check()
+    if fk_issues:
+        print(f"⚠️  {len(fk_issues)} FK violations found")
+        for issue in fk_issues[:3]:
+            print(f"   • {issue['relation']}: {issue['missing_key']}")
+        total_issues += len(fk_issues)
+    else:
+        print("✅ No foreign key violations")
+    
+    # Uniqueness constraints
+    print("\n🔑 Checking uniqueness constraints...")
+    uniq_issues = uniq_check()
+    if uniq_issues:
+        print(f"⚠️  {len(uniq_issues)} uniqueness violations found")
+        for issue in uniq_issues[:3]:
+            print(f"   • {issue['entity']}: {issue['count']} duplicates")
+        total_issues += len(uniq_issues)
+    else:
+        print("✅ No uniqueness violations")
+    
+    # TOT consistency
+    print("\n📊 Checking TOT consistency...")
+    tot_issues = tot_consistency_check()
+    if tot_issues:
+        print(f"⚠️  {len(tot_issues)} TOT issues found")
+        for issue in tot_issues[:3]:
+            print(f"   • Player {issue['player_id']}: {issue['violation']}")
+        total_issues += len(tot_issues)
+    else:
+        print("✅ TOT logic is consistent")
+    
+    # Sample reconciliation
+    print("\n🎯 Running sample reconciliation...")
+    recon_issues = sample_reconciliation_check(sample_size=5)
+    if recon_issues:
+        print(f"⚠️  {len(recon_issues)} reconciliation mismatches")
+        for issue in recon_issues[:2]:
+            print(f"   • {issue['metric']}: Δ{issue['delta']}")
+        total_issues += len(recon_issues)
+    else:
+        print("✅ Sample data reconciled successfully")
+    
+    # Final summary
+    print("\n" + "=" * 40)
+    print("🏁 Pipeline Summary")
+    print(f"📈 Total issues found: {total_issues}")
+    
+    if total_issues == 0:
+        print("🎉 All checks passed! Pipeline is healthy.")
+        return 0
+    else:
+        print("⚠️  Some issues found - check logs above")
+        return 0  # Don't fail on validation issues in MVP
+    
+    # Quick data sample
+    print("\n📊 Quick Data Sample:")
+    try:
+        conn = connect()
+        
+        # Show player count
+        player_count = conn.execute("SELECT COUNT(*) FROM curated_player").fetchone()[0]
+        print(f"   • Players: {player_count:,}")
+        
+        # Show team count  
+        team_count = conn.execute("SELECT COUNT(*) FROM curated_team").fetchone()[0]
+        print(f"   • Teams: {team_count:,}")
+        
+        # Show player-season count
+        ps_count = conn.execute("SELECT COUNT(*) FROM curated_player_season").fetchone()[0]
+        print(f"   • Player-Seasons: {ps_count:,}")
+        
+        # Show sample players
+        sample_players = conn.execute("""
+            SELECT p.player_name, ps.season, ps.team_abbreviation, ps.points
+            FROM curated_player p
+            JOIN curated_player_season ps ON p.player_id = ps.player_id
+            WHERE ps.points > 20
+            ORDER BY ps.points DESC
+            LIMIT 3
+        """).fetchall()
+        
+        if sample_players:
+            print("   • Top scorers sample:")
+            for name, season, team, points in sample_players:
+                print(f"     - {name} ({season} {team}): {points:.1f} PPG")
+        
+        conn.close()
+        
+    except Exception as e:
+        print(f"   ⚠️ Could not retrieve data sample: {e}")
+
+
+if __name__ == "__main__":
+    sys.exit(main())

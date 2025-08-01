@@ -1,0 +1,11 @@
+ingest\duckdb_client.py:15: error: Cannot find implementation or library stub
+for module named "duckdb"  [import-not-found]
+    import duckdb
+    ^
+ingest\duckdb_client.py:15: note: See https://mypy.readthedocs.io/en/stable/running_mypy.html#missing-imports
+ingest\staging_loader.py:193: error: Argument "options" to
+"load_csv_to_staging" has incompatible type "CsvLoadPlan"; expected
+"dict[str, Any] | None"  [arg-type]
+                    options=plan
+                            ^~~~
+Found 2 errors in 2 files (checked 15 source files)

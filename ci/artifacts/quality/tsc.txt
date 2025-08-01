@@ -1,0 +1,77 @@
+error TS5083: Cannot read file 'C:/Users/nicki/Documents/Github_Desktop/bbclone/frontend/tsconfig.base.json'.
+frontend/src/App.tsx(8,19): error TS2307: Cannot find module 'react' or its corresponding type declarations.
+frontend/src/App.tsx(9,30): error TS2307: Cannot find module 'react-router-dom' or its corresponding type declarations.
+frontend/src/App.tsx(13,5): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+frontend/src/App.tsx(13,5): error TS2875: This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.
+frontend/src/App.tsx(14,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+frontend/src/App.tsx(15,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+frontend/src/App.tsx(18,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+frontend/src/App.tsx(19,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+frontend/src/App.tsx(20,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+frontend/src/App.tsx(22,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+frontend/src/App.tsx(23,5): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+frontend/src/main.tsx(8,19): error TS2307: Cannot find module 'react' or its corresponding type declarations.
+frontend/src/main.tsx(9,22): error TS2307: Cannot find module 'react-dom/client' or its corresponding type declarations.
+frontend/src/main.tsx(10,53): error TS2307: Cannot find module 'react-router-dom' or its corresponding type declarations.
+frontend/src/main.tsx(18,14): error TS2875: This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.
+frontend/src/routes/GamePbpPage.tsx(15,19): error TS2307: Cannot find module 'react' or its corresponding type declarations.
+frontend/src/routes/GamePbpPage.tsx(16,27): error TS2307: Cannot find module 'react-router-dom' or its corresponding type declarations.
+frontend/src/routes/GamePbpPage.tsx(22,5): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+frontend/src/routes/GamePbpPage.tsx(22,5): error TS2875: This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.
+frontend/src/routes/GamePbpPage.tsx(23,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+frontend/src/routes/GamePbpPage.tsx(23,35): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+frontend/src/routes/GamePbpPage.tsx(24,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+frontend/src/routes/GamePbpPage.tsx(24,27): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+frontend/src/routes/GamePbpPage.tsx(26,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+frontend/src/routes/GamePbpPage.tsx(26,63): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+frontend/src/routes/GamePbpPage.tsx(28,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+frontend/src/routes/GamePbpPage.tsx(30,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+frontend/src/routes/GamePbpPage.tsx(30,34): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+frontend/src/routes/GamePbpPage.tsx(31,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+frontend/src/routes/GamePbpPage.tsx(33,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+frontend/src/routes/GamePbpPage.tsx(36,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+frontend/src/routes/GamePbpPage.tsx(37,5): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+frontend/src/routes/PlayersPage.tsx(15,19): error TS2307: Cannot find module 'react' or its corresponding type declarations.
+frontend/src/routes/PlayersPage.tsx(24,5): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+frontend/src/routes/PlayersPage.tsx(24,5): error TS2875: This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.
+frontend/src/routes/PlayersPage.tsx(25,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+frontend/src/routes/PlayersPage.tsx(25,25): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+frontend/src/routes/PlayersPage.tsx(27,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+frontend/src/routes/PlayersPage.tsx(28,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+frontend/src/routes/PlayersPage.tsx(30,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+frontend/src/routes/PlayersPage.tsx(31,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+frontend/src/routes/PlayersPage.tsx(32,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+frontend/src/routes/PlayersPage.tsx(34,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+frontend/src/routes/PlayersPage.tsx(35,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+frontend/src/routes/PlayersPage.tsx(36,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+frontend/src/routes/PlayersPage.tsx(36,80): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+frontend/src/routes/PlayersPage.tsx(37,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+frontend/src/routes/PlayersPage.tsx(39,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+frontend/src/routes/PlayersPage.tsx(40,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+frontend/src/routes/PlayersPage.tsx(41,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+frontend/src/routes/PlayersPage.tsx(42,13): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+frontend/src/routes/PlayersPage.tsx(42,26): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+frontend/src/routes/PlayersPage.tsx(43,13): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+frontend/src/routes/PlayersPage.tsx(43,28): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+frontend/src/routes/PlayersPage.tsx(44,13): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+frontend/src/routes/PlayersPage.tsx(44,23): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+frontend/src/routes/PlayersPage.tsx(45,13): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+frontend/src/routes/PlayersPage.tsx(45,21): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+frontend/src/routes/PlayersPage.tsx(46,13): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+frontend/src/routes/PlayersPage.tsx(46,30): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+frontend/src/routes/PlayersPage.tsx(47,13): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+frontend/src/routes/PlayersPage.tsx(47,36): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+frontend/src/routes/PlayersPage.tsx(48,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+frontend/src/routes/PlayersPage.tsx(49,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+frontend/src/routes/PlayersPage.tsx(50,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+frontend/src/routes/PlayersPage.tsx(52,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+frontend/src/routes/PlayersPage.tsx(53,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+frontend/src/routes/PlayersPage.tsx(55,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+frontend/src/routes/PlayersPage.tsx(57,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+frontend/src/routes/PlayersPage.tsx(57,34): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+frontend/src/routes/PlayersPage.tsx(58,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+frontend/src/routes/PlayersPage.tsx(58,53): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+frontend/src/routes/PlayersPage.tsx(59,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+frontend/src/routes/PlayersPage.tsx(59,30): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+frontend/src/routes/PlayersPage.tsx(60,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+frontend/src/routes/PlayersPage.tsx(61,5): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.

@@ -1,0 +1,26 @@
+Mypy Type Check Coverage Summary
+================================
+
+Script: index
+
++-----------------------+-------------------+----------+
+| Module                | Imprecision       | Lines    |
++-----------------------+-------------------+----------+
+| duckdb_repo           |   7.41% imprecise |   54 LOC |
+| hoopsarchive          |   0.00% imprecise |    9 LOC |
+| hoopsarchive.settings |   3.95% imprecise |   76 LOC |
+| hoopsarchive.urls     |  18.18% imprecise |   22 LOC |
+| ingest                |   0.00% imprecise |   19 LOC |
+| ingest.cli            |  17.05% imprecise |  176 LOC |
+| ingest.config         |   0.00% imprecise |   43 LOC |
+| ingest.duckdb_client  |   2.33% imprecise |   86 LOC |
+| ingest.staging_loader |   8.50% imprecise |  200 LOC |
+| ingest.transformer    |   9.46% imprecise |  296 LOC |
+| ingest.validators     |  12.75% imprecise |  408 LOC |
+| manage                |   0.00% imprecise |   24 LOC |
+| players               |   0.00% imprecise |    9 LOC |
+| players.serializers   |  13.04% imprecise |   46 LOC |
+| players.views         |   5.48% imprecise |   73 LOC |
++-----------------------+-------------------+----------+
+| Total                 |   9.73% imprecise | 1541 LOC |
++-----------------------+-------------------+----------+

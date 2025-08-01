@@ -1,0 +1,20 @@
+
+=================================== ERRORS ====================================
+______________ ERROR collecting tests/test_ingest_validations.py ______________
+ImportError while importing test module 'C:\Users\nicki\Documents\Github_Desktop\bbclone\tests\test_ingest_validations.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+C:\Program Files\Python312\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_ingest_validations.py:16: in <module>
+    from ingest.validators import (
+ingest\validators.py:23: in <module>
+    from .duckdb_client import connect, health_check
+ingest\duckdb_client.py:15: in <module>
+    import duckdb
+E   ModuleNotFoundError: No module named 'duckdb'
+=========================== short test summary info ===========================
+ERROR ci\tests\test_ingest_validations.py
+!!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 1 failures !!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!

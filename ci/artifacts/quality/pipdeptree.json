@@ -1,0 +1,155 @@
+[
+    {
+        "key": "deptry",
+        "package_name": "deptry",
+        "installed_version": "0.23.1",
+        "required_version": "0.23.1",
+        "dependencies": [
+            {
+                "key": "click",
+                "package_name": "click",
+                "installed_version": "8.2.1",
+                "required_version": ">=8.0.0,<9",
+                "dependencies": [
+                    {
+                        "key": "colorama",
+                        "package_name": "colorama",
+                        "installed_version": "0.4.6",
+                        "required_version": "Any",
+                        "dependencies": []
+                    }
+                ]
+            },
+            {
+                "key": "colorama",
+                "package_name": "colorama",
+                "installed_version": "0.4.6",
+                "required_version": ">=0.4.6",
+                "dependencies": []
+            },
+            {
+                "key": "packaging",
+                "package_name": "packaging",
+                "installed_version": "25.0",
+                "required_version": ">=23.2",
+                "dependencies": []
+            },
+            {
+                "key": "requirements-parser",
+                "package_name": "requirements-parser",
+                "installed_version": "0.13.0",
+                "required_version": ">=0.11.0,<1",
+                "dependencies": [
+                    {
+                        "key": "packaging",
+                        "package_name": "packaging",
+                        "installed_version": "25.0",
+                        "required_version": ">=23.2",
+                        "dependencies": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "key": "flake8",
+        "package_name": "flake8",
+        "installed_version": "7.3.0",
+        "required_version": "7.3.0",
+        "dependencies": [
+            {
+                "key": "mccabe",
+                "package_name": "mccabe",
+                "installed_version": "0.7.0",
+                "required_version": ">=0.7.0,<0.8.0",
+                "dependencies": []
+            },
+            {
+                "key": "pycodestyle",
+                "package_name": "pycodestyle",
+                "installed_version": "2.14.0",
+                "required_version": ">=2.14.0,<2.15.0",
+                "dependencies": []
+            },
+            {
+                "key": "pyflakes",
+                "package_name": "pyflakes",
+                "installed_version": "3.4.0",
+                "required_version": ">=3.4.0,<3.5.0",
+                "dependencies": []
+            }
+        ]
+    },
+    {
+        "key": "mypy",
+        "package_name": "mypy",
+        "installed_version": "1.17.1",
+        "required_version": "1.17.1",
+        "dependencies": [
+            {
+                "key": "mypy-extensions",
+                "package_name": "mypy_extensions",
+                "installed_version": "1.1.0",
+                "required_version": ">=1.0.0",
+                "dependencies": []
+            },
+            {
+                "key": "pathspec",
+                "package_name": "pathspec",
+                "installed_version": "0.12.1",
+                "required_version": ">=0.9.0",
+                "dependencies": []
+            },
+            {
+                "key": "typing-extensions",
+                "package_name": "typing_extensions",
+                "installed_version": "4.14.1",
+                "required_version": ">=4.6.0",
+                "dependencies": []
+            }
+        ]
+    },
+    {
+        "key": "pipdeptree",
+        "package_name": "pipdeptree",
+        "installed_version": "2.28.0",
+        "required_version": "2.28.0",
+        "dependencies": [
+            {
+                "key": "packaging",
+                "package_name": "packaging",
+                "installed_version": "25.0",
+                "required_version": ">=24.1",
+                "dependencies": []
+            },
+            {
+                "key": "pip",
+                "package_name": "pip",
+                "installed_version": "25.2",
+                "required_version": ">=24.2",
+                "dependencies": []
+            }
+        ]
+    },
+    {
+        "key": "ruff",
+        "package_name": "ruff",
+        "installed_version": "0.12.7",
+        "required_version": "0.12.7",
+        "dependencies": []
+    },
+    {
+        "key": "vulture",
+        "package_name": "vulture",
+        "installed_version": "2.14",
+        "required_version": "2.14",
+        "dependencies": []
+    },
+    {
+        "key": "wheel",
+        "package_name": "wheel",
+        "installed_version": "0.45.1",
+        "required_version": "0.45.1",
+        "dependencies": []
+    }
+]

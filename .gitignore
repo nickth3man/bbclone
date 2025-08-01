@@ -1,3 +1,54 @@
+# OS & Editor
+.DS_Store
+Thumbs.db
+!.gitignore
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyd
+*.so
+*.egg-info/
+.eggs/
+.build/
+dist/
+build/
+site/
+.coverage
+.coverage.*
+.cache/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.pyre/
+.hypothesis/
+.tox/
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Node / Frontend
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.vite/
+.eslintcache
+.stylelintcache
+
+# IDEs / Tools
+.vscode/
+.idea/
+*.iml
+
+# Project-specific
+# Keep committed CSVs; do not ignore the csv directory.
+# Continue ignoring only the specific large file:
 csv/play_by_play.csv
 
 # Data artifacts (left commented to preserve currently tracked files)

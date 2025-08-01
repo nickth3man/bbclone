@@ -11,11 +11,15 @@ Traceability:
 This module defines only constants and type hints. No runtime logic.
 """
 
+import os
 from typing import Final, List, Tuple, TypedDict, Optional
 
-# File system paths
-DB_PATH: Final[str] = "data/hoarchive.duckdb"
-CSV_DIR: Final[str] = "csv"
+# File system paths - environment configurable with fallbacks
+DUCKDB_PATH: Final[str] = os.getenv('DUCKDB_PATH', 'data/hoarchive.duckdb')
+CSV_DIR: Final[str] = os.getenv('CSV_DIR', 'csv')
+
+# Backward compatibility
+DB_PATH: Final[str] = DUCKDB_PATH
 
 # Null handling per Background and Ingestion Scenario
 NULLSTRINGS: Final[List[str]] = ["", "NA", "null"]
