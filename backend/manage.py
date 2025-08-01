@@ -1,23 +1,25 @@
 #!/usr/bin/env python
 """
-Minimal Django manage.py placeholder.
-
-Traceability:
-- See docs/specs/gherkin/bdd-duckdb_ingest_api_ui.md
-  Sections: 3) API Expectations (Players endpoint, Play-by-Play endpoint)
-
-This is a scaffolding file to allow Red phase tests to import Django entrypoint.
-No Django setup or execution logic beyond placeholders.
+Django's command-line utility for administrative tasks.
 """
-
 import os
 import sys
 
 
 def main() -> None:
-    """Stub manage entrypoint. Intentionally non-functional."""
-    # In scaffolding we do not invoke Django. Tests should fail until implemented.
-    raise NotImplementedError("Django manage.py not implemented in scaffolding phase")
+    """Run administrative tasks."""
+    sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir)))
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "hoopsarchive.settings")
+    try:
+        from django.core.management import execute_from_command_line
+    except ImportError as exc:
+        raise ImportError(
+            "Couldn't import Django. Are you sure it's installed and "
+            "available on your PYTHONPATH environment variable? Did you "
+    
+            "forget to activate a virtual environment?"
+        ) from exc
+    execute_from_command_line(sys.argv)
 
 
 if __name__ == "__main__":

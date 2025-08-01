@@ -12,8 +12,11 @@ No actual Django runtime configuration is guaranteed here.
 import os
 from pathlib import Path
 
+import sys
 # Base directory (placeholder)
-BASE_DIR = Path(__file__).resolve().parent.parent
+
+
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 # Development-friendly defaults
 DEBUG = True
@@ -28,7 +31,7 @@ INSTALLED_APPS: list[str] = [
     # "django.contrib.sessions",
     # "django.contrib.messages",
     # "django.contrib.staticfiles",
-    # "rest_framework",  # To be added by Red phase
+    "rest_framework",  # Enabled for DRF APIs
     "players",  # app scaffold
 ]
 

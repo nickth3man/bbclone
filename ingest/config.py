@@ -12,7 +12,7 @@ This module defines only constants and type hints. No runtime logic.
 """
 
 import os
-from typing import Final, List, Tuple, TypedDict, Optional
+from typing import Final, List, Tuple, TypedDict, NotRequired
 
 # File system paths - environment configurable with fallbacks
 DUCKDB_PATH: Final[str] = os.getenv('DUCKDB_PATH', 'data/hoarchive.duckdb')
@@ -30,7 +30,7 @@ IdLike = int  # BIGINT/HUGEINT alignment
 Decimal9_3 = float  # Placeholder type; actual DECIMAL(9,3) enforced in SQL
 DateLike = str  # ISO-8601 yyyy-mm-dd string representation for stubs
 
-class CsvLoadPlan(TypedDict, total=False):
+class CsvLoadPlan(TypedDict):
     """Plan for how a CSV should be loaded into staging.
 
     This mirrors the Gherkin scenario notes for read_csv_auto/COPY options.
@@ -38,6 +38,6 @@ class CsvLoadPlan(TypedDict, total=False):
     source_file: str
     staging_table: str
     nullstrings: List[str]
-    delimiter: Optional[str]
-    header: Optional[bool]
-    types: Optional[Tuple[str, ...]]  # duckdb type strings if predeclared
+    delimiter: NotRequired[str]
+    header: bool
+    types: NotRequired[Tuple[str, ...]]  # duckdb type strings if predeclared

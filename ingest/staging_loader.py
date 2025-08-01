@@ -18,7 +18,7 @@ Only function signatures and docstrings are provided. No business logic implemen
 
 import logging
 from pathlib import Path
-from typing import Optional, Dict, Any, List
+from typing import Optional, Dict, Any, List, cast # Import cast
 
 from .config import CsvLoadPlan, CSV_DIR, NULLSTRINGS
 from .duckdb_client import connect
@@ -112,7 +112,157 @@ def plan_csv_loads() -> List[CsvLoadPlan]:
             'staging_table': 'staging_line_score',
             'nullstrings': NULLSTRINGS,
             'header': True
-        }
+        },
+        {
+            'source_file': 'Advanced.csv',
+            'staging_table': 'staging_advanced',
+            'nullstrings': NULLSTRINGS,
+            'header': True
+        },
+        {
+            'source_file': 'All-Star Selections.csv',
+            'staging_table': 'staging_all_star_selections',
+            'nullstrings': NULLSTRINGS,
+            'header': True
+        },
+        {
+            'source_file': 'draft_combine_stats.csv',
+            'staging_table': 'staging_draft_combine_stats',
+            'nullstrings': NULLSTRINGS,
+            'header': True
+        },
+        {
+            'source_file': 'draft_history.csv',
+            'staging_table': 'staging_draft_history',
+            'nullstrings': NULLSTRINGS,
+            'header': True
+        },
+        {
+            'source_file': 'End of Season Teams (Voting).csv',
+            'staging_table': 'staging_end_of_season_teams_voting',
+            'nullstrings': NULLSTRINGS,
+            'header': True
+        },
+        {
+            'source_file': 'End of Season Teams.csv',
+            'staging_table': 'staging_end_of_season_teams',
+            'nullstrings': NULLSTRINGS,
+            'header': True
+        },
+        {
+            'source_file': 'game_info.csv',
+            'staging_table': 'staging_game_info',
+            'nullstrings': NULLSTRINGS,
+            'header': True
+        },
+        {
+            'source_file': 'inactive_players.csv',
+            'staging_table': 'staging_inactive_players',
+            'nullstrings': NULLSTRINGS,
+            'header': True
+        },
+        {
+            'source_file': 'officials.csv',
+            'staging_table': 'staging_officials',
+            'nullstrings': NULLSTRINGS,
+            'header': True
+        },
+        {
+            'source_file': 'Opponent Stats Per 100 Poss.csv',
+            'staging_table': 'staging_opponent_stats_per_100_poss',
+            'nullstrings': NULLSTRINGS,
+            'header': True
+        },
+        {
+            'source_file': 'Opponent Stats Per Game.csv',
+            'staging_table': 'staging_opponent_stats_per_game',
+            'nullstrings': NULLSTRINGS,
+            'header': True
+        },
+        {
+            'source_file': 'Opponent Totals.csv',
+            'staging_table': 'staging_opponent_totals',
+            'nullstrings': NULLSTRINGS,
+            'header': True
+        },
+        {
+            'source_file': 'other_stats.csv',
+            'staging_table': 'staging_other_stats',
+            'nullstrings': NULLSTRINGS,
+            'header': True
+        },
+        {
+            'source_file': 'Per 36 Minutes.csv',
+            'staging_table': 'staging_per_36_minutes',
+            'nullstrings': NULLSTRINGS,
+            'header': True
+        },
+        {
+            'source_file': 'Per 100 Poss.csv',
+            'staging_table': 'staging_per_100_poss',
+            'nullstrings': NULLSTRINGS,
+            'header': True
+        },
+        {
+            'source_file': 'play_by_play.csv',
+            'staging_table': 'staging_play_by_play',
+            'nullstrings': NULLSTRINGS,
+            'header': True
+        },
+        {
+            'source_file': 'Player Award Shares.csv',
+            'staging_table': 'staging_player_award_shares',
+            'nullstrings': NULLSTRINGS,
+            'header': True
+        },
+        {
+            'source_file': 'Player Shooting.csv',
+            'staging_table': 'staging_player_shooting',
+            'nullstrings': NULLSTRINGS,
+            'header': True
+        },
+        {
+            'source_file': 'player.csv',
+            'staging_table': 'staging_player',
+            'nullstrings': NULLSTRINGS,
+            'header': True
+        },
+        {
+            'source_file': 'Team Stats Per 100 Poss.csv',
+            'staging_table': 'staging_team_stats_per_100_poss',
+            'nullstrings': NULLSTRINGS,
+            'header': True
+        },
+        {
+            'source_file': 'Team Stats Per Game.csv',
+            'staging_table': 'staging_team_stats_per_game',
+            'nullstrings': NULLSTRINGS,
+            'header': True
+        },
+        {
+            'source_file': 'Team Summaries.csv',
+            'staging_table': 'staging_team_summaries',
+            'nullstrings': NULLSTRINGS,
+            'header': True
+        },
+        {
+            'source_file': 'Team Totals.csv',
+            'staging_table': 'staging_team_totals',
+            'nullstrings': NULLSTRINGS,
+            'header': True
+        },
+        {
+            'source_file': 'team_details.csv',
+            'staging_table': 'staging_team_details',
+            'nullstrings': NULLSTRINGS,
+            'header': True
+        },
+        {
+            'source_file': 'team_info_common.csv',
+            'staging_table': 'staging_team_info_common',
+            'nullstrings': NULLSTRINGS,
+            'header': True
+        },
     ]
 
 
@@ -188,9 +338,10 @@ def load_all_staging_tables() -> None:
     
     for plan in plans:
         try:
+            # Explicitly cast plan to Dict[str, Any] to satisfy Pylance
             load_csv_to_staging(
                 table_name=plan['staging_table'],
-                options=plan
+                options=cast(Dict[str, Any], plan) # Cast to Dict[str, Any]
             )
         except Exception as e:
             logger.error(f"Failed to load staging table {plan['staging_table']}: {e}")
